@@ -84,6 +84,8 @@ export default function Component() {
     const messagesContainerRef = useRef<HTMLDivElement>(null)
     const messagesEndRef = useRef<HTMLDivElement>(null)
 
+    console.log(messages)
+
     const scrollToBottom = () => {
         messagesContainerRef.current?.scrollTo({
             top: messagesContainerRef.current.scrollHeight,
