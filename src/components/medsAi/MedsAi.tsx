@@ -89,9 +89,18 @@ export default function Component() {
     const input = ""
 
     const handleInputChange = () => { }
-    const handleSubmit = () => { }
 
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        const res = await fetch("/api/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ prompt: "Write a vegetarian lasagna recipe for 4 people" }),
+        });
 
+        const data = await res.json();
+        console.log(data.result);
+    }
 
 
     const messagesContainerRef = useRef<HTMLDivElement>(null)
