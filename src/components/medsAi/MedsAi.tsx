@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 
-import { useChat } from 'ai/react'
+
 import { useRef, useEffect } from 'react'
 import { motion } from "framer-motion"
 import { Bot, Send, Sparkles } from "lucide-react"
@@ -80,7 +81,19 @@ function VitalsIcon(props: React.SVGProps<SVGSVGElement>) {
 
 export default function Component() {
 
-    const { messages, input, handleInputChange, handleSubmit } = useChat()
+    // const { messages, input, handleInputChange, handleSubmit } = {}
+    const messages = [{
+        role: "",
+        content: ""
+    }]
+    const input = ""
+
+    const handleInputChange = () => { }
+    const handleSubmit = () => { }
+
+
+
+
     const messagesContainerRef = useRef<HTMLDivElement>(null)
     const messagesEndRef = useRef<HTMLDivElement>(null)
 
