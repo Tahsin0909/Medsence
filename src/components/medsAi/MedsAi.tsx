@@ -9,16 +9,15 @@ import { Bot, Send, Sparkles } from "lucide-react"
 import Image from 'next/image'
 import sideIMage from "@/assets/image-removebg-preview.png"
 import { HeartIcon, PrescriptionIcon, RecordsIcon, VitalsIcon } from '@/lib/icon'
-
+import ReactMarkdown from "react-markdown";
 
 export default function Component() {
 
     const [input, setInput] = useState<string>("")
     // const { messages, input, handleInputChange, handleSubmit } = {}
-    const messages = [{
-        role: "",
-        content: ""
-    }]
+
+    const [isActive, setIsActive] = useState(false);
+
 
 
 
@@ -27,12 +26,14 @@ export default function Component() {
     const [result, setResult] = useState<{ role: string, messages: string }[]>([]);
 
     const handleSubmit = async (e: React.FormEvent) => {
+        setIsActive(true)
         e.preventDefault();
         const userMsg = {
             role: "user",
             messages: input
         }
         setResult(prev => [...prev, userMsg]); // update state
+        setInput("")
         const res = await fetch("/api/chat", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -40,18 +41,37 @@ export default function Component() {
         });
 
         const data = await res.json();
-        console.log(data)
-        const msg = {
-            role: "ai",
-            messages: data.result
+        if (data) {
+            setIsActive(false)
+            console.log(data)
+            const msg = {
+                role: "ai",
+                messages: data.result
+            }
+            setResult(prev => [...prev, msg]); // update state
         }
-        setResult(prev => [...prev, msg]); // update state
+
     };
 
     const messagesContainerRef = useRef<HTMLDivElement>(null)
     const messagesEndRef = useRef<HTMLDivElement>(null)
 
     console.log(result)
+
+
+    useEffect(() => {
+        if (isActive) {
+            const timer = setTimeout(() => {
+                setIsActive(false);
+            }, 5000);
+
+            // cleanup to clear timeout if component unmounts
+            return () => clearTimeout(timer);
+        }
+    }, [isActive]);
+
+
+
 
     const scrollToBottom = () => {
         messagesContainerRef.current?.scrollTo({
@@ -62,7 +82,7 @@ export default function Component() {
 
     useEffect(() => {
         scrollToBottom()
-    }, [messages])
+    }, [result])
 
     const icons = [
         { Icon: HeartIcon, label: "Diagnosis" },
@@ -134,10 +154,21 @@ export default function Component() {
                                             : 'bg-gray-100 text-gray-800'
                                             }`}
                                     >
-                                        {message.messages}
+                                        {
+                                            message.role === 'ai' && <ReactMarkdown>{message.messages}</ReactMarkdown>
+                                        }
+                                        {
+                                            message.role === 'user' && message.messages
+                                        }
+
                                     </div>
                                 </div>
                             ))}
+                            {isActive && <div className='p-2 rounded-md bg-gray-200 w-fit flex  items-center gap-1'>
+                                <div className="p-1 rounded-full bg-gray-400 animate-bounce delay-100"></div>
+                                <div className="p-1 rounded-full bg-gray-400 animate-bounce delay-200"></div>
+                                <div className="p-1 rounded-full bg-gray-400 animate-bounce delay-300"></div>
+                            </div>}
                             <div ref={messagesEndRef} />
                         </div>
                         <form onSubmit={handleSubmit} className="p-4 border-t">
