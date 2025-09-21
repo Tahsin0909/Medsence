@@ -79,6 +79,7 @@ function VitalsIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 export default function Component() {
+
     const { messages, input, handleInputChange, handleSubmit } = useChat()
     const messagesContainerRef = useRef<HTMLDivElement>(null)
     const messagesEndRef = useRef<HTMLDivElement>(null)
@@ -122,7 +123,7 @@ export default function Component() {
                             {icons.map(({ Icon, label }, index) => (
                                 <motion.div
                                     key={label}
-                                    className="flex flex-col items-center p-4 bg-white rounded-lg  shadow-xl" 
+                                    className="flex flex-col items-center p-4 bg-white rounded-lg  shadow-xl"
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.3 + index * 0.1 }}
@@ -160,8 +161,8 @@ export default function Component() {
                                 >
                                     <div
                                         className={`max-w-[70%] rounded-lg p-3 ${message.role === 'user'
-                                                ? 'bg-[#DB2777] text-white'
-                                                : 'bg-gray-100 text-gray-800'
+                                            ? 'bg-[#DB2777] text-white'
+                                            : 'bg-gray-100 text-gray-800'
                                             }`}
                                     >
                                         {message.content}
