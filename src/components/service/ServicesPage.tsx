@@ -48,7 +48,7 @@ type ServiceCardProps = {
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, description, features = [] }) => (
   <motion.div
     variants={itemVariants}
-    whileHover={{ scale: 1.02 }}
+    // whileHover={{ scale: 1.02 }}
     className="relative"
   >
     <Card className="h-full backdrop-blur-sm bg-white/70">
@@ -171,7 +171,7 @@ const ServicesPage: React.FC = () => {
 
         {/* Feature Highlight */}
         <motion.div
-          whileHover={{ scale: 1.04 }}
+          // whileHover={{ scale: 1.04 }}
           transition={{ type: "spring", stiffness: 200 }}
           variants={itemVariants}
           className="bg-gradient-to-r from-[#DB2777]/10 to-[#BE185D]/10 rounded-lg mb-16"
