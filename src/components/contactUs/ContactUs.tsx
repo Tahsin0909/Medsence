@@ -182,7 +182,7 @@ export default function ContactUs() {
           {/* Contact Form */}
           <motion.div
             variants={itemVariants}
-            whileHover={{ y: -5 }}
+          // whileHover={{ y: -5 }}
           >
             <Card className="backdrop-blur-sm bg-white/70">
               <CardHeader>
@@ -265,7 +265,7 @@ export default function ContactUs() {
                     />
                   </motion.div>
                   <motion.div
-                    whileHover={{ scale: 1.02 }}
+                    // whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
                     <Button
