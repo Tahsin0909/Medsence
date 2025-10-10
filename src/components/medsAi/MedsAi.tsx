@@ -18,11 +18,6 @@ export default function Component() {
 
     const [isActive, setIsActive] = useState(false);
 
-
-
-
-
-
     const [result, setResult] = useState<{ role: string, messages: string }[]>([]);
 
     const handleSubmit = async (e: React.FormEvent) => {
