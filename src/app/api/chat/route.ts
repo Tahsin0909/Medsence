@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { google } from "@ai-sdk/google";
-import { generateText } from "ai";
+import { streamText } from "ai";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -18,12 +18,13 @@ Follow this format:
 4. Remind the user this is not real medical advice.
 `;
 
-    const { text } = await generateText({
+    const result = await streamText({
       model: google("gemini-2.5-flash"),
       prompt: `${disclaimer}\n\nUser problem description: ${prompt}\n\nNow respond according to the format above.`,
     });
 
-    return NextResponse.json({ result: text });
+    // Return as streaming response
+    return result.toTextStreamResponse();
   } catch (error: any) {
     return NextResponse.json({ error: error }, { status: 500 });
   }

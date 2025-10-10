@@ -21,32 +21,53 @@ export default function Component() {
     const [result, setResult] = useState<{ role: string, messages: string }[]>([]);
 
     const handleSubmit = async (e: React.FormEvent) => {
-        setIsActive(true)
-        e.preventDefault();
+        setIsActive(true) // show loading or disable button
+        e.preventDefault(); // stop page reload when form submits
+
+        // save user message
         const userMsg = {
             role: "user",
             messages: input
         }
-        setResult(prev => [...prev, userMsg]); // update state
-        setInput("")
+        setResult(prev => [...prev, userMsg]); // add user message to chat
+        setInput("") // clear input box
+
+        // send user input to backend API
         const res = await fetch("/api/chat", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ prompt: input }),
         });
 
-        const data = await res.json();
-        if (data) {
-            setIsActive(false)
-            console.log(data)
-            const msg = {
-                role: "ai",
-                messages: data.result
-            }
-            setResult(prev => [...prev, msg]); // update state
-        }
+        if (!res.body) return; // if no response body, stop
 
+        const reader = res.body.getReader(); // read stream
+        const decoder = new TextDecoder(); // convert bytes to text
+        let aiMessages = "";
+
+        // read stream chunk by chunk
+        while (true) {
+            const { done, value } = await reader.read();
+            if (done) break; // stop when stream ends
+
+            aiMessages += decoder.decode(value); // add new text
+
+            // update chat as AI sends new words
+            setResult(prev => {
+                const newMessages = [...prev];
+                const last = newMessages[newMessages.length - 1];
+
+                if (last?.role === "ai") last.messages = aiMessages; // update if AI already started
+                else newMessages.push({ role: "ai", messages: aiMessages }); // else create new AI message
+
+                return [...newMessages];
+            });
+        };
+
+        setIsActive(false); // stop loading
     };
+
+
 
     const messagesContainerRef = useRef<HTMLDivElement>(null)
     const messagesEndRef = useRef<HTMLDivElement>(null)
