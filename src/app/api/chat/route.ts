@@ -23,12 +23,8 @@ Follow this format:
       prompt: `${disclaimer}\n\nUser problem description: ${prompt}\n\nNow respond according to the format above.`,
     });
 
-    for await (const textPart of text) {
-      return NextResponse.json({ result: textPart });
-      // console.log(textPart);
-    }
 
-
+    return NextResponse.json({ result: text });
   } catch (error: any) {
     return NextResponse.json({ error: error }, { status: 500 });
   }
