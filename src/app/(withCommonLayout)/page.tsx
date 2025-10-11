@@ -4,7 +4,6 @@ import Hero from "@/components/hero/Hero";
 import HowItWorks from "@/components/howItWorks/HowItWorks";
 import MedsAi from "@/components/medsAi/MedsAi";
 import SubmitReview from "@/components/submitReview/SubmitReview";
-import Testimonials from "@/components/testimonials/Testimonials";
 
 
 
@@ -16,7 +15,7 @@ const page = () => {
       <MedsAi />
       <Feature />
       <HowItWorks />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <SubmitReview />
       <FAQSection />
     </>
