@@ -25,7 +25,7 @@ const config: Config = {
         text_default: "#000000",
         button_bg: "#DB2777",
         button_hover_bg: "#E30B5D",
-        secondary: "#ffe88c",
+        secondary: "#3AB9B4",
         // section_bg: "#FFE4E6",
         section_bg: "#FFFFFF",
         nav_bg: "#e0adb5",
@@ -47,70 +47,70 @@ const config: Config = {
   },
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require("tailwindcss-animate"),
-    function ({ addComponents }: PluginAPI) {
-      addComponents({
-        ".section-gap": {
-          paddingTop: "2rem", // Default padding for all screen sizes
-          paddingBottom: "2rem", // Default padding for all screen sizes
+  function ({ addComponents }: PluginAPI) {
+    addComponents({
+      ".section-gap": {
+        paddingTop: "2rem", // Default padding for all screen sizes
+        paddingBottom: "2rem", // Default padding for all screen sizes
 
-          // For small screens (sm)
-          "@screen sm": {
-            paddingTop: "4rem", // Adjust padding for small screens
-            paddingBottom: "4rem",
-          },
-
-          // For medium screens (md)
-          "@screen md": {
-            paddingTop: "6rem", // Adjust padding for medium screens
-            paddingBottom: "6rem",
-          },
-
-          // For large screens (lg)
-          "@screen lg": {
-            paddingTop: "8rem", // Adjust padding for large screens
-            paddingBottom: "8rem",
-          },
-
-          // For extra-large screens (xl)
-          "@screen xl": {
-            paddingTop: "10rem", // Adjust padding for extra-large screens
-            paddingBottom: "10rem",
-          },
+        // For small screens (sm)
+        "@screen sm": {
+          paddingTop: "4rem", // Adjust padding for small screens
+          paddingBottom: "4rem",
         },
-        ".dashboard-containers": {
-          maxWidth: "100%", // Default for all screen sizes
-          paddingTop: "4rem", // Default padding for all screen sizes
-          paddingBottom: "2rem", // Default padding for all screen sizes
-          paddingRight: "1rem", // Default padding for all screen sizes
-          paddingLeft: "1rem", // Default padding for all screen sizes
-          margin: "0 auto", // Center the container
 
-          // For small screens (sm)
-          "@screen sm": {
-            maxWidth: "100%", // Full width
-            padding: "4rem", // Adjust padding for small screens
-          },
-
-          // For medium screens (md)
-          "@screen md": {
-            maxWidth: "100%", // Medium screen container width
-            padding: "2rem", // Adjust padding for medium screens
-          },
-
-          // For large screens (lg)
-          "@screen lg": {
-            maxWidth: "100%", // Larger screen container width
-            padding: "3rem",
-          },
-
-          // For extra-large screens (xl)
-          "@screen xl": {
-            maxWidth: "100%", // Maximum width for the container on extra-large screens
-            padding: "4rem",
-          },
+        // For medium screens (md)
+        "@screen md": {
+          paddingTop: "6rem", // Adjust padding for medium screens
+          paddingBottom: "6rem",
         },
-      });
-    },
+
+        // For large screens (lg)
+        "@screen lg": {
+          paddingTop: "8rem", // Adjust padding for large screens
+          paddingBottom: "8rem",
+        },
+
+        // For extra-large screens (xl)
+        "@screen xl": {
+          paddingTop: "10rem", // Adjust padding for extra-large screens
+          paddingBottom: "10rem",
+        },
+      },
+      ".dashboard-containers": {
+        maxWidth: "100%", // Default for all screen sizes
+        paddingTop: "4rem", // Default padding for all screen sizes
+        paddingBottom: "2rem", // Default padding for all screen sizes
+        paddingRight: "1rem", // Default padding for all screen sizes
+        paddingLeft: "1rem", // Default padding for all screen sizes
+        margin: "0 auto", // Center the container
+
+        // For small screens (sm)
+        "@screen sm": {
+          maxWidth: "100%", // Full width
+          padding: "4rem", // Adjust padding for small screens
+        },
+
+        // For medium screens (md)
+        "@screen md": {
+          maxWidth: "100%", // Medium screen container width
+          padding: "2rem", // Adjust padding for medium screens
+        },
+
+        // For large screens (lg)
+        "@screen lg": {
+          maxWidth: "100%", // Larger screen container width
+          padding: "3rem",
+        },
+
+        // For extra-large screens (xl)
+        "@screen xl": {
+          maxWidth: "100%", // Maximum width for the container on extra-large screens
+          padding: "4rem",
+        },
+      },
+    });
+  },
   ],
 };
 export default config;
