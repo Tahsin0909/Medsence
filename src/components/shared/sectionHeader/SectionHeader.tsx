@@ -4,7 +4,7 @@ const SectionHeader = ({ title, subtitle, toolText }: { title: string, subtitle:
   return (
     <div className="text-center mt-10 md:mt-0 mb-12 md:mb-24">
       {
-        toolText && <div className="inline-flex items-center rounded-full border border-[#DB2777]/20 bg-yellow-200/40 px-3 my-2 py-1 text-sm text-[#DB2777] shadow-sm">
+        toolText && <div className="inline-flex items-center rounded-full border border-[#DB2777]/20 bg-[#39B5AE]/10 px-3 my-2 py-1 text-sm text-[#39B5AE] shadow-sm">
           <Sparkles className="mr-2 h-4 w-4" />
           {toolText}
         </div>

@@ -3,7 +3,7 @@ import { Metadata } from "next";
 
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Explain My Meds',
+  title: 'Contact Us | Medsence',
 }
 
 
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const ContactPage = () => {
   return (
     <div>
-      <ContactUs/>
+      <ContactUs />
     </div>
   );
 };

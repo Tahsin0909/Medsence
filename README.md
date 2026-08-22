@@ -4,8 +4,6 @@
 
 MedSense is an AI-powered medication information platform built to help users understand medicines and general health information in a simple and easy-to-read way.
 
-The project was previously referenced with names such as **Crown to Cherish** and **Explain My Meds** in different parts of the codebase. For this README, the product is treated consistently as **MedSense**.
-
 ## About MedSense
 
 MedSense uses AI to explain medication-related information in a more understandable format.
@@ -327,7 +325,7 @@ So the name represents:
 
 > **Making medicine easier to understand.**
 
-This branding should be used consistently instead of older project names such as **Crown to Cherish** or **Explain My Meds**.
+This branding should be used consistently instead of older project names such as **Crown to Cherish** or **Medsence**.
 
 ## Future Improvements
 

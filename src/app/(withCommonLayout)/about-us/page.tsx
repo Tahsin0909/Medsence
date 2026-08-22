@@ -5,12 +5,12 @@ import React from 'react';
 
 
 export const metadata: Metadata = {
-  title: 'About Us | Explain My Meds',
+  title: 'About Us | Medsence',
 }
 const page = () => {
   return (
     <div>
-      <AboutUsPage/>
+      <AboutUsPage />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 
 
 export const metadata: Metadata = {
-  title: 'Disclaimer | Explain My Meds',
+  title: 'Disclaimer | Medsence',
 }
 
 

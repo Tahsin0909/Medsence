@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import React from 'react';
 
 export const metadata: Metadata = {
-  title: 'Services | Explain My Meds',
+  title: 'Services | Medsence',
 }
 
 
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const page = () => {
   return (
     <div>
-      <ServicesPage/>
+      <ServicesPage />
     </div>
   );
 };

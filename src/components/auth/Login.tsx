@@ -104,7 +104,7 @@ export default function AdminLogin() {
 
             {/* Welcome Text */}
             <div className="absolute bottom-8 left-8 text-white z-20">
-                <h2 className="md:text-4xl text-xl font-bold mb-4">Welcome to Explain My Meds Admin</h2>
+                <h2 className="md:text-4xl text-xl font-bold mb-4">Welcome to Medsence Admin</h2>
                 <p className="md:text-xl">
                     Manage and monitor your AI-powered medication information system
                 </p>

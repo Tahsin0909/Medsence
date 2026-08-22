@@ -4,7 +4,7 @@ import React from 'react';
 
 
 export const metadata: Metadata = {
-    title: 'Feedbacks | Explain My Meds',
+    title: 'Feedbacks | Medsence',
 }
 
 
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const page = () => {
     return (
         <div>
-            <FeedBacksPage/>
+            <FeedBacksPage />
         </div>
     );
 };
